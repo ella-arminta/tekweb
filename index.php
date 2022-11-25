@@ -10,5 +10,6 @@
 </head>
 <body>
     <?php include 'includes/navbar.php'; ?>
+    <h1>halo</h1>
 </body>
 </html>
