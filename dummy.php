@@ -6,6 +6,11 @@ include 'api/connect.php';
 // echo $row['chat_id'] . $row['user_id1'];
 // $_POST
 // $_GET
+// if(isset($_GET['idPro'])){
+// // idpro
+// }else{
+//     header('Location: index.php');
+// }
 ?>
 
 <!DOCTYPE html>
@@ -17,18 +22,27 @@ include 'api/connect.php';
     <title>Document</title>
 </head>
 <body>
+    <h1>Contoh 1</h1>
 <?php
-// $stmt = $conn->prepare("SELECT * FROM chat where chat_id = ? and user_id1 = ?");
-// $stmt->execute([2,12]);
-// while($row = $stmt->fetch()){
-//     echo $row['chat_id'] . $row['user_id1'] . '<br>';
-// }
+$stmt = $conn->prepare("SELECT * FROM chat where chat_id = ? and user_id1 = ?");
+$stmt->execute([2,12]);
+while($row = $stmt->fetch()){
+    echo $row['chat_id'] . $row['user_id1'] . '<br>';
+}
 ?>  
+<h1>Contoh 2</h1>
+<?php
+$stmt = $conn->prepare("SELECT * FROM chat where chat_id = ?");
+$stmt->execute([2]);
+while($row = $stmt->fetch()): ?>
+   <h1><?= $row['chat_id'] ?></h1>
+   <p><?php $row['user_id1'] ?></p>
+<?php endwhile; ?>  
     <button class="ambilData" >Ambil data</button>
     <div class="hasil">
 
     </div>
-    <form action="api/cobalagi.php">
+    <form action="api/cobalagi.php" method="POST">
         <input type="text" name="nama" id="nama">
         <textarea name="hai" id="hai" cols="30" rows="10"></textarea>
         <button type="submit">Submit</button>
