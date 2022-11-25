@@ -1,3 +1,4 @@
+<!-- ini buat landing page -> angel dihapus aja nanti ini -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
