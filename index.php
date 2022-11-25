@@ -1,3 +1,4 @@
+
 <!-- ini buat landing page -> angel dihapus aja nanti ini -->
 <!DOCTYPE html>
 <html lang="en">
@@ -8,5 +9,6 @@
     <title>Hai</title>
 </head>
 <body>
+    <?php include 'includes/navbar.php'; ?>
 </body>
 </html>
