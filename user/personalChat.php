@@ -187,8 +187,7 @@
                         }
                         $('.chats').append(bubles);
                         latestMsg = response[2];
-                        var d = $('.chats');
-                        d.scrollTop(d.prop("scrollHeight"));
+                      
                     }
                 }
             });
@@ -227,6 +226,11 @@
                         response = JSON.parse(response);
                         if(response[0] == 'success'){
                             loadMsg(chat);
+                            setTimeout(() => {
+                                var d = $('.chats');
+                            d.scrollTop(d.prop("scrollHeight"));
+                            }, 100);
+                           
                         }
                     }
                 });
