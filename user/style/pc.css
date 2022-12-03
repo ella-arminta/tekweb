@@ -8,6 +8,12 @@ html,body{
     /* justify-content: center; */
     align-items: center;
     padding: 2vw;
+    background-color: white;
+    margin: 0;
+    box-shadow: 0 8px 8px -4px rgb(88, 87, 87);
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .nav div{
     display: flex;
@@ -23,4 +29,85 @@ html,body{
     max-height: 18vw;
     margin-left: 10%;
     border-radius: 10vw;
+}
+.sendbox{
+    width: 100%;
+    background-color: bisque;
+    position: fixed;
+    bottom:0;
+    left:0;
+    height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width: 99%;
+}
+.body{
+    background-color: white;
+}
+.chats{
+    background-color: rgb(224, 221, 221);
+    width: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    padding-top: 35px;
+}
+.chatbox{
+    width: 80%;
+    border-radius: 30px;
+    background-color: white;
+    padding: 20px;
+}
+.mybubble{
+    float: right;
+    justify-content: end;
+}
+.mybubble .chatbox{
+    background-color: rgb(41, 224, 163);
+}
+.write{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+.bubble{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+.write textarea{
+    width: 90%;
+    border: none;
+    border: solid gray 1px;
+    padding: 10px;
+    border-radius: 30px;
+    resize: none;
+}
+.write textarea:focus{
+    outline: none !important;
+    border:1px solid rgb(251, 190, 36);
+    box-shadow: 0 0 1px rgb(251, 190, 36);
+}
+@media(min-width: 720px){
+    .pp{
+        height: 50px;
+    }
+    .nav{
+        padding:5px;
+    }
+    .nav .col-8{
+        /* justify-content: start; */
+        align-items: flex-start;
+    }
+}
+@media(max-width: 719px){
+    .write textarea{
+        width: 80%;
+    }
 }
