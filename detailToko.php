@@ -1,5 +1,6 @@
 <?php
     include 'api/connect.php';
+    $userID = 1;
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +38,6 @@
             <div class="row">
                 <div class="col-md-4">
                     <?php
-                        $userID = 1;
                         $stmt = $conn->prepare("SELECT * FROM user WHERE user_id = ?");
                         $stmt->execute([$userID]);
                         $row = $stmt->fetch();
@@ -52,13 +52,12 @@
                         <div class="container border border-dark border-opacity-25 p-5 rounded-1">
                             <div class="row">
                                 <?php
-                                    $userID = 1;
                                     $stmt = $conn->prepare("SELECT * FROM product WHERE user_id = ?");
                                     $stmt->execute([$userID]);
                                     while($row = $stmt->fetch()){
                                         echo '<div class="col-md-4 col-sm-6">
                                         <div class="card">
-                                            <img class="card-img-top" src="images/box.jpg" alt="Card image" style="width:100%;">
+                                            <img class="card-img-top" src="'.$row['product_img'].'" alt="Card image" style="width:100%;">
                                             <div class="card-body">
                                             <h4 class="card-title">'.$row['product_name'].'</h4>
                                             <p class="card-text">Rp '.$row['product_price'].'</p>
