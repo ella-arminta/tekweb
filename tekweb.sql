@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2022 at 05:12 AM
+-- Generation Time: Dec 17, 2022 at 06:21 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -110,17 +110,18 @@ CREATE TABLE `product` (
   `product_id` int(100) NOT NULL,
   `product_name` varchar(100) NOT NULL,
   `product_price` int(100) NOT NULL,
-  `user_id` int(100) NOT NULL
+  `user_id` int(100) NOT NULL,
+  `product_img` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `user_id`) VALUES
-(1, 'baju tidur', 25000, 1),
-(2, 'topi', 20000, 1),
-(3, 'casing', 50000, 1);
+INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `user_id`, `product_img`) VALUES
+(1, 'baju tidur', 25000, 1, 'resource/img/product/pajamas.jpg'),
+(2, 'topi', 20000, 1, 'resource/img/product/cap.jpg'),
+(3, 'casing', 50000, 1, 'resource/img/product/shoes.jpg');
 
 -- --------------------------------------------------------
 
