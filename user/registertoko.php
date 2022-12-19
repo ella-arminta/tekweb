@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -13,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
-    .login-form {
+        .login-form {
             background-color: white;
             max-width: 700px;
             border: 5px solid red;
@@ -36,32 +37,36 @@
         .login-form .content {
             padding: 35px;
         }
-        body{
+
+        body {
             background-color: pink;
         }
-        img{
+
+        img {
             width: 100px;
             height: 100px;
         }
     </style>
 </head>
+
 <body>
     <div class="login-form">
 
-    <div class="title bg-primary text-white">
-    <img src="logobb.PNG" class="rounded mx-auto" alt="Cinque Terre"> 
-    <br>  
-        REGISTER TOKO
-    </div>
+        <div class="title bg-primary text-white">
+            <img src="logobb.PNG" class="rounded mx-auto" alt="Cinque Terre">
+            <br>
+            REGISTER TOKO
+        </div>
 
-    <div class="content">
+        <div class="content">
 
-        <?=isset($msg) ? '<div class="alert alert-danger">'.$msg.'</div>' : ''?>
+            <?=isset($msg) ? '<div class="alert alert-danger">'.$msg.'</div>' : ''?>
 
             <form method="post">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nama Toko</label>
-                    <input type="text" class="form-control" placeholder="Masukkan nama toko" id="exampleInputEmail1" name="username">
+                    <input type="text" class="form-control" placeholder="Masukkan nama toko" id="exampleInputEmail1"
+                        name="username">
                 </div>
 
                 <div class="mb-3">
@@ -71,13 +76,21 @@
 
                 <div class="d-grid gap-2">
                     <label class="form-check-label" for="autoSizingCheck">
-                    <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                    Syarat dan Ketentuan berlaku
-                    </label>
-                    <button class="btn btn-dark" name="register">Register Toko</button>
+
+                        <form class="was-validated">
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customControlValidation1"
+                                    required>
+                                <label class="custom-control-label" for="customControlValidation1">Syarat dan Ketentuan
+                                    berlaku</label>
+                                <div class="invalid-feedback">Patuhi S&K!</div>
+                            </div>
+                        </form>
+                        <button class="btn btn-dark" name="register">Register Toko</button>
                 </div>
             </form>
         </div>
     </div>
 </body>
+
 </html>

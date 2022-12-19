@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -30,7 +31,8 @@
             image-resolution: 20px 20px;
 
         }
-        img{
+
+        img {
             width: 100px;
             height: 100px;
         }
@@ -39,64 +41,74 @@
         .login-form .content {
             padding: 25px;
         }
-        body{
+
+        body {
             background-color: pink;
         }
+
         a:link {
             color: green;
             background-color: transparent;
             text-decoration: none;
-            }
+        }
+
         a:visited {
             color: pink;
             background-color: transparent;
             text-decoration: none;
-            }
+        }
+
         a:hover {
             color: red;
             background-color: transparent;
             text-decoration: underline;
-            }
+        }
+
         a:active {
             color: yellow;
             background-color: transparent;
             text-decoration: underline;
-            }
+        }
     </style>
 
 </head>
+
 <body>
-    
+
     <div class="login-form">
 
-    <div class="title bg-primary text-white">
-    <img src="logobb.PNG" class="rounded mx-auto" alt="Cinque Terre"> 
-    <br>   
-    LOGIN
-    </div>
+        <div class="title bg-primary text-white">
+            <img src="logobb.PNG" class="rounded mx-auto" alt="Cinque Terre">
+            <br>
+            LOGIN
+        </div>
 
-    <div class="content">
+        <div class="content">
 
-        <?=isset($msg) ? '<div class="alert alert-danger">'.$msg.'</div>' : ''?>
+            <?=isset($msg) ? '<div class="alert alert-danger">'.$msg.'</div>' : ''?>
 
             <form method="post">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label"><b>Username</b></label>
-                    <input type="text" class="form-control" placeholder="Enter Username" id="exampleInputEmail1" name="username">
+                    <input type="text" class="form-control" placeholder="Enter Username" id="exampleInputEmail1"
+                        name="username">
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label"><b>Password</b></label>
-                    <input type="password" class="form-control" placeholder="Enter Password" id="exampleInputPassword1" name="password">
+                    <input type="password" class="form-control" placeholder="Enter Password" id="exampleInputPassword1"
+                        name="password">
                 </div>
 
                 <div class="d-grid gap-2">
                     <button class="btn btn-dark" name="login">Login</button>
+                    <a href="registeruser.php">Don't have account? Sign up here</a>
                 </div>
             </form>
         </div>
-        
+
     </div>
-    
+
 </body>
+
 </html>
