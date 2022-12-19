@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2022 at 06:21 AM
+-- Generation Time: Dec 19, 2022 at 07:48 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -121,7 +121,8 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `user_id`, `product_img`) VALUES
 (1, 'baju tidur', 25000, 1, 'resource/img/product/pajamas.jpg'),
 (2, 'topi', 20000, 1, 'resource/img/product/cap.jpg'),
-(3, 'casing', 50000, 1, 'resource/img/product/shoes.jpg');
+(3, 'sepatu', 50000, 1, 'resource/img/product/shoes.jpg'),
+(4, 'tas', 40000, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -132,19 +133,20 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `user_id`,
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `username` varchar(300) NOT NULL,
-  `fullname` varchar(500) NOT NULL
+  `fullname` varchar(500) NOT NULL,
+  `profilepic` text DEFAULT 'resource/img/user/blank.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `fullname`) VALUES
-(1, 'jerteti', 'jeremy andrea'),
-(2, 'floaudrina', 'floren audrina'),
-(3, 'felithepooh', 'felina evangelica'),
-(4, 'angel', 'jeanne angeline siemon'),
-(5, 'ella', 'Ella Arminta');
+INSERT INTO `user` (`user_id`, `username`, `fullname`, `profilepic`) VALUES
+(1, 'jerteti', 'jeremy andrea', 'resource/img/user/jerteti.jpg'),
+(2, 'floaudrina', 'floren audrina', 'resource/img/user/wednesday.jpg'),
+(3, 'felithepooh', 'felina evangelica', 'resource/img/user/pooh.jpg'),
+(4, 'angel', 'jeanne angeline siemon', 'resource/img/user/blank.jpg'),
+(5, 'ella', 'Ella Arminta', 'resource/img/user/moneyheist.jpg');
 
 --
 -- Indexes for dumped tables
@@ -195,7 +197,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
