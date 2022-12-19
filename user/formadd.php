@@ -19,10 +19,11 @@
     .login-form {
             background-color: white;
             max-width: 700px;
+            max-height: 1500px;
             border: 5px solid red;
             border-radius: 8px;
             position: absolute;
-            top: 50%;
+            top: 75%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 100%;
@@ -51,12 +52,9 @@
 </head>
 <body>
     <div class="login-form">
-
-    <br>
-    <br>
     <div class="title bg-primary text-white">
     <img src="logobb.PNG" class="rounded mx-auto" alt="Cinque Terre"> 
-    <br>  
+    
         FORM SELL ITEM
     </div>
 
@@ -94,7 +92,7 @@
                 <label for="validationTooltipUsername">Berat Product</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                    <span class="input-group-text" id="validationTooltipUsernamePrepend">Gram</span>
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">Centimeter(CM)</span>
                     </div>
                     <input type="number" min="1" step="5" value="1" id="exampleInputAmount" class="form-control" placeholder="Price">
                 </div>
@@ -104,7 +102,7 @@
                 <label for="validationTooltipUsername">Panjang Product</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                    <span class="input-group-text" id="validationTooltipUsernamePrepend">Gram</span>
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">Centimeter(CM)</span>
                     </div>
                     <input type="number" min="1" step="5" value="1" id="exampleInputAmount" class="form-control" placeholder="Price">
                 </div>
@@ -114,7 +112,7 @@
                 <label for="validationTooltipUsername">Lebar Product</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                    <span class="input-group-text" id="validationTooltipUsernamePrepend">Gram</span>
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">Centimeter(CM)</span>
                     </div>
                     <input type="number" min="1" step="5" value="1" id="exampleInputAmount" class="form-control" placeholder="Price">
                 </div>
