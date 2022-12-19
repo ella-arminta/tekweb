@@ -12,7 +12,7 @@
     <style>
         .login-form {
             background-color: white;
-            max-width: 500px;
+            max-width: 700px;
             border: 5px solid red;
             border-radius: 8px;
             position: absolute;
@@ -27,8 +27,14 @@
             text-align: center;
             text-shadow: 2px 2px 5px red;
             font-size: 40px;
+            image-resolution: 20px 20px;
 
         }
+        img{
+            width: 100px;
+            height: 100px;
+        }
+
 
         .login-form .content {
             padding: 25px;
@@ -60,11 +66,13 @@
 
 </head>
 <body>
-
+    
     <div class="login-form">
 
     <div class="title bg-primary text-white">
-        LOGIN
+    <img src="logobb.PNG" class="rounded mx-auto" alt="Cinque Terre"> 
+    <br>   
+    LOGIN
     </div>
 
     <div class="content">
@@ -73,18 +81,17 @@
 
             <form method="post">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="text" class="form-control" placeholder="Masukkan username" id="exampleInputEmail1" name="username">
+                    <label for="exampleInputEmail1" class="form-label"><b>Username</b></label>
+                    <input type="text" class="form-control" placeholder="Enter Username" id="exampleInputEmail1" name="username">
                 </div>
 
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" placeholder="Masukkan password" id="exampleInputPassword1" name="password">
+                    <label for="exampleInputPassword1" class="form-label"><b>Password</b></label>
+                    <input type="password" class="form-control" placeholder="Enter Password" id="exampleInputPassword1" name="password">
                 </div>
 
                 <div class="d-grid gap-2">
                     <button class="btn btn-dark" name="login">Login</button>
-                    <a href="registeruser.php">Dont have account? Regist in here</a>
                 </div>
             </form>
         </div>

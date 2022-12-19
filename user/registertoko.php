@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTER USER</title>
+    <title>REGISTER TOKO</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -39,12 +39,18 @@
         body{
             background-color: pink;
         }
+        img{
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 <body>
     <div class="login-form">
 
     <div class="title bg-primary text-white">
+    <img src="logobb.PNG" class="rounded mx-auto" alt="Cinque Terre"> 
+    <br>  
         REGISTER TOKO
     </div>
 
@@ -60,11 +66,15 @@
 
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Input Profile Picture Toko</label>
-                    <input class="form-control" type="file" placeholder="Masukkan nama toko" id="formFile">
+                    <input class="form-control" type="file" id="formFile">
                 </div>
 
                 <div class="d-grid gap-2">
-                    <button class="btn btn-dark" name="register">Register</button>
+                    <label class="form-check-label" for="autoSizingCheck">
+                    <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                    Syarat dan Ketentuan berlaku
+                    </label>
+                    <button class="btn btn-dark" name="register">Register Toko</button>
                 </div>
             </form>
         </div>
