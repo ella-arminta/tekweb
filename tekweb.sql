@@ -110,6 +110,10 @@ CREATE TABLE `product` (
   `product_id` int(100) NOT NULL,
   `product_name` varchar(100) NOT NULL,
   `product_price` int(100) NOT NULL,
+  `product_weight` int(100) NOT NULL,
+  `product_size` varchar(100) NOT NULL,
+  `product_desc` varchar(500) NOT NULL,
+  `product_category` varchar(100) NOT NULL,
   `user_id` int(100) NOT NULL,
   `product_img` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -118,11 +122,11 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `user_id`, `product_img`) VALUES
-(1, 'baju tidur', 25000, 1, 'resource/img/product/pajamas.jpg'),
-(2, 'topi', 20000, 1, 'resource/img/product/cap.jpg'),
-(3, 'sepatu', 50000, 1, 'resource/img/product/shoes.jpg'),
-(4, 'tas', 40000, 1, NULL);
+INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_weight`, `product_size`, `product_desc`, `product_category`, `user_id`, `product_img`) VALUES
+(1, 'baju tidur', 25000, 300, 'M', 'baju baru belum pernah dipakai', 'pakaian', 1, 'resource/img/product/pajamas.jpg'),
+(2, 'topi', 20000, 100, 'all size', 'topi pernah dipakai', 'topi', 1, 'resource/img/product/cap.jpg'),
+(3, 'sepatu', 50000, 1000, '37', 'sepatu cuma pernah dicoba, belum pernah pakai', 'sepatu', 1, 'resource/img/product/shoes.jpg'),
+(4, 'tas', 40000, 1200, 'medium', 'pamakaian 1 bulan', 'tas', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -134,6 +138,7 @@ CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `username` varchar(300) NOT NULL,
   `fullname` varchar(500) NOT NULL,
+  `password` varchar(10) NOT NULL, 
   `profilepic` text DEFAULT 'resource/img/user/blank.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -141,12 +146,12 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `fullname`, `profilepic`) VALUES
-(1, 'jerteti', 'jeremy andrea', 'resource/img/user/jerteti.jpg'),
-(2, 'floaudrina', 'floren audrina', 'resource/img/user/wednesday.jpg'),
-(3, 'felithepooh', 'felina evangelica', 'resource/img/user/pooh.jpg'),
-(4, 'angel', 'jeanne angeline siemon', 'resource/img/user/blank.jpg'),
-(5, 'ella', 'Ella Arminta', 'resource/img/user/moneyheist.jpg');
+INSERT INTO `user` (`user_id`, `username`, `fullname`, `password`, `profilepic`) VALUES
+(1, 'jerteti', 'jeremy andrea', 'jerz', 'resource/img/user/jerteti.jpg'),
+(2, 'floaudrina', 'floren audrina', 'flow', 'resource/img/user/wednesday.jpg'),
+(3, 'felithepooh', 'felina evangelica', 'feli', 'resource/img/user/pooh.jpg'),
+(4, 'angel', 'jeanne angeline siemon', 'angels', 'resource/img/user/blank.jpg'),
+(5, 'ella', 'Ella Arminta', 'lala', 'resource/img/user/moneyheist.jpg');
 
 --
 -- Indexes for dumped tables
