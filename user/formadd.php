@@ -111,10 +111,10 @@
                     <p>Kategori Product</p>
                     <select class="form-select" name="jenis_pengiriman">
                         <option value="0">Choose...</option>
-                        <option value="1">Makanan</option>
-                        <option value="2">Minuman</option>
-                        <option value="3">Kebutuhan Rumah Tangga</option>
-                        <option value="4">Mainan</option>
+                        <option value="1">Baju</option>
+                        <option value="2">Tas</option>
+                        <option value="3">Sepatu</option>
+                        <option value="4">Topi</option>
                         <option value="5">Peralatan Kantor</option>
                         <option value="6">Peralatan Sekolah</option>
                     </select>
