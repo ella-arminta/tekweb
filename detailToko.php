@@ -120,7 +120,7 @@
                                                 <h4 class="card-title">'.$row['product_name'].'</h4>
                                                 <p class="card-text">Rp '.$row['product_price'].'</p>
                                                 <a href="#" class="btn btn-outline-warning btn-buy" data-bs-toggle="modal" data-bs-target="#buyModal">Buy</a>
-                                                <a href="detailProduct.php" class="btn btn-info btn-addcart">View Details</a>
+                                                <a href="detailProduct.php?product_id='.$row['product_id'].'" class="btn btn-info btn-addcart">View Details</a>
                                                 </div>
                                                 </div>
                                             </div>';
@@ -147,7 +147,7 @@
                                                     <h4 class="card-title">'.$row['product_name'].'</h4>
                                                     <p class="card-text">Rp '.$row['product_price'].'</p>
                                                     <a href="#" class="btn btn-outline-warning btn-buy" data-bs-toggle="modal" data-bs-target="#buyModal">Buy</a>
-                                                    <a href="detailProduct.php" class="btn btn-info btn-addcart">View Details</a>
+                                                    <a href="detailProduct.php?product_id='.$row['product_id'].'" class="btn btn-info btn-addcart">View Details</a>
                                                     </div>
                                                 </div>
                                             </div>';
