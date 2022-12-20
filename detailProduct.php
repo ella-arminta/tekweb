@@ -1,19 +1,18 @@
 <?php
     include 'api/connect.php';
     
-    // if((!isset($_GET['product_id'])) || empty($_GET['product_id']) || !is_numeric($_GET['product_id'])) {
-    //     $errors[] = ' ';
-    // } else {
+    if((!isset($_GET['product_id'])) || empty($_GET['product_id']) || !is_numeric($_GET['product_id'])) {
+        header('Location: index.php');
+    } else {
     $product_id = $_GET['product_id'];
 
     $sql = 'SELECT * 
             FROM product
-            WHERE product_id = ? 
-            LIMIT 1';
+            WHERE product_id = ?';
     $stmt = $conn->prepare($sql);
     $stmt->execute([$product_id]);
     $row = $stmt->fetch();
-    // }
+    }
 ?>
 
 <!DOCTYPE html>
