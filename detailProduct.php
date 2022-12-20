@@ -38,7 +38,7 @@
             <br>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="container border border-dark border-opacity-25 p-5 rounded-1">
+                    <div class="container border border-dark border-opacity-25 rounded-1">
                         <?php
                         if (isset($_GET['product_id'])){
                             $stmt = $conn->prepare("SELECT * FROM product WHERE product_id = ?");
