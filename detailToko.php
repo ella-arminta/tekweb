@@ -43,17 +43,16 @@
         </style>
     </head>
     <body>
-    <div class="modal" id="purchased">
+        <!-- modal kalo buyer sudah membeli -->
+        <div class="modal" id="purchased">
             <div class="modal-dialog">
                 <div class="modal-content">
-            
-                    <!-- Modal Header -->
+
                     <div class="modal-header">
                     <h4 class="modal-title">Buy Product</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-            
-                    <!-- Modal body -->
+    
                     <div class="modal-body">
                         <div style="margin-bottom:10px;"><strong>Barang Berhasil Dibeli!</strong></div>
                     </div>
@@ -61,23 +60,21 @@
                 </div>
             </div>
         </div>
+       <!-- modal kalo buyer pencet buy -->
         <div class="modal" id="ModalForBuy">
             <div class="modal-dialog">
                 <div class="modal-content">
             
-                    <!-- Modal Header -->
                     <div class="modal-header">
                     <h4 class="modal-title">Buy Product</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-            
-                    <!-- Modal body -->
+
                     <div class="modal-body">
                         <div style="margin-bottom:10px;"><strong>Quantity</strong></div>
                         <input type="number" class="form-control" min="1" value="1">
                     </div>
-            
-                    <!-- Modal footer -->
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#purchased">Buy</button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
