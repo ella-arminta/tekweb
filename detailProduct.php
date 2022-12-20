@@ -39,12 +39,6 @@
                 <div class="col-md-4">
                     <div class="container border border-dark border-opacity-25 p-5 rounded-1">
                         <?php
-                        if (isset($_GET['product_id'])){
-                            $stmt = $conn->prepare("SELECT * FROM product WHERE product_id = ?");
-                            $stmt->execute([$product_id]);
-                            while($row = $stmt->fetch()){
-                                // echo '<div class="col-md-4 col-sm-6 p-2">
-                                // <div class="card">';
                                 if ($row['product_img'] == null) {
                                     echo '<p class="container text-center gy-10 py-5">No Image Available</p>';
                                 }
@@ -61,8 +55,6 @@
 
                             // <h4 class="card-title">'.$row['product_name'].'</h4>
                             // <p class="card-text">Rp '.$row['product_price'].'</p
-                            }
-                        }
                         ?>
                     </div>
                 </div>
@@ -72,12 +64,7 @@
                 <div class="col-md-6">
                     <h5>Descriptions</h5>
                     <?php
-                    if (isset($_GET['product_id'])){
-                        $stmt = $conn->prepare("SELECT * FROM product WHERE product_id = ?");
-                        $stmt->execute([$product_id]);
-                        $row = $stmt->fetch();
-                        echo $row['product_size'];
-                    }
+                        echo 'Size : ' . $row['product_size'];
                     ?>
                     
                 </div>
