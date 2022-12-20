@@ -56,8 +56,7 @@
                                 </div>
                                 </div>
                             </div>';
-                            echo $row['product_name'];
-                            echo $row['product_price'];
+                            
 
                             // <h4 class="card-title">'.$row['product_name'].'</h4>
                             // <p class="card-text">Rp '.$row['product_price'].'</p
@@ -66,6 +65,12 @@
                         ?>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <?php
+                echo $row['product_name'];
+                echo $row['product_price'];
+                ?>
             </div>
             <br>
             <div class="row">
