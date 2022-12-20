@@ -37,7 +37,7 @@
             <br>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="container border border-dark border-opacity-25 p-5 rounded-1">
+                    <div class="container border border-dark border-opacity-25 rounded-1">
                         <?php
                                 if ($row['product_img'] == null) {
                                     echo '<p class="container text-center gy-10 py-5">No Image Available</p>';
@@ -50,14 +50,19 @@
                                 </div>
                                 </div>
                             </div>';
-                            echo $row['product_name'];
-                            echo $row['product_price'];
+                            
 
                             // <h4 class="card-title">'.$row['product_name'].'</h4>
                             // <p class="card-text">Rp '.$row['product_price'].'</p
                         ?>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <?php
+                echo $row['product_name'];
+                echo $row['product_price'];
+                ?>
             </div>
             <br>
             <div class="row">
