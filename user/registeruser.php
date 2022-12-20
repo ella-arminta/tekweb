@@ -1,3 +1,24 @@
+<?php
+require 'api/connect.php';
+$conn = mysqli_connect("localhost", "root", "", "tekweb");
+$username = $_POST["username"];
+$fullname = $_POST["fullname"];
+$password = $_POST["password"];
+$profilepic = $_POST["profilepic"];
+
+$query_sql = "INSERT INTO user (username , fullname, password, profilepic)
+        VALUES ($username, $fullname, $password, $profilepic)";
+
+if(mysqli_query($conn, $query_sql)){
+    header("Locations: login.php ");
+}
+else {
+    echo "Pendaftaran Gagal : " . mysqli_error($conn);
+} 
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,7 +111,7 @@
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Fullname</label>
                     <input type="text" class="form-control" placeholder="Enter Fullname" id="exampleInputEmail1"
-                        name="username">
+                        name="fullname">
                 </div>
 
                 <div class="mb-3">
@@ -110,14 +131,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Email</label>
-                    <input type="email" class="form-control" placeholder="Enter Email" id="exampleInputPassword1"
-                        name="password">
-                </div>
-
-                <div class="mb-3">
                     <label for="formFile" class="form-label">Input Profile Picture</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" type="file" id="profilepic">
                 </div>
 
                 <div class="d-grid gap-2">

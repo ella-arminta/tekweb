@@ -1,3 +1,23 @@
+<?php
+require 'api/connect.php';
+$conn = mysqli_connect("localhost", "root", "", "tekweb");
+$username = $_POST["username"];
+$password = $_POST["password"];
+
+$query_sql = "SELECT * FROM user
+            WHERE username = '$username' AND password = '$password' ";
+
+$result = mysqli_query($conn, $query_sql);
+
+if(mysqli_num_rows($result) > 0){
+    header("Locations: formadd.php ");
+}
+else {
+    echo "<center><h1> Email atau Password Anda Salah. Silahkan Coba Login kembali.</h1>
+    <button><strong><a href = 'login.php'>Login </a><strong></button></center>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,16 +107,16 @@
 
             <?=isset($msg) ? '<div class="alert alert-danger">'.$msg.'</div>' : ''?>
 
-            <form method="post">
+            <form method="POST">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label"><b>Username</b></label>
-                    <input type="text" class="form-control" placeholder="Enter Username" id="exampleInputEmail1"
+                    <input type="text" class="form-control" placeholder="Enter Username" id="enterusername"
                         name="username">
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label"><b>Password</b></label>
-                    <input type="password" class="form-control" placeholder="Enter Password" id="exampleInputPassword1"
+                    <input type="password" class="form-control" placeholder="Enter Password" id="enteruserpassword"
                         name="password">
                 </div>
 
