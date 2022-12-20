@@ -43,6 +43,50 @@
         </style>
     </head>
     <body>
+    <div class="modal" id="purchased">
+            <div class="modal-dialog">
+                <div class="modal-content">
+            
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Buy Product</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+            
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div style="margin-bottom:10px;"><strong>Barang Berhasil Dibeli!</strong></div>
+                    </div>
+            
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ModalForBuy">
+            <div class="modal-dialog">
+                <div class="modal-content">
+            
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Buy Product</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+            
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div style="margin-bottom:10px;"><strong>Quantity</strong></div>
+                        <input type="number" class="form-control" min="1" value="1">
+                    </div>
+            
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#purchased">Buy</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+            
+                </div>
+            </div>
+        </div>
+    
         <div class="container-fluid">
             <div class="row">
                 <?php include 'includes/navbar.php'; ?>
@@ -119,7 +163,7 @@
                                                 echo '<div class="card-body">
                                                 <h4 class="card-title">'.$row['product_name'].'</h4>
                                                 <p class="card-text">Rp '.$row['product_price'].'</p>
-                                                <a href="#" class="btn btn-outline-warning btn-buy" data-bs-toggle="modal" data-bs-target="#buyModal">Buy</a>
+                                                <a href="#" class="btn btn-outline-warning btn-buy" data-bs-toggle="modal" data-bs-target="#ModalForBuy">Buy</a>
                                                 <a href="detailProduct.php?product_id='.$row['product_id'].'" class="btn btn-info btn-addcart">View Details</a>
                                                 </div>
                                                 </div>
@@ -146,7 +190,7 @@
                                                     echo '<div class="card-body">
                                                     <h4 class="card-title">'.$row['product_name'].'</h4>
                                                     <p class="card-text">Rp '.$row['product_price'].'</p>
-                                                    <a href="#" class="btn btn-outline-warning btn-buy" data-bs-toggle="modal" data-bs-target="#buyModal">Buy</a>
+                                                    <a href="#" class="btn btn-outline-warning btn-buy" data-bs-toggle="modal" data-bs-target="#ModalForBuy">Buy</a>
                                                     <a href="detailProduct.php?product_id='.$row['product_id'].'" class="btn btn-info btn-addcart">View Details</a>
                                                     </div>
                                                 </div>
