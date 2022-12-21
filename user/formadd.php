@@ -17,7 +17,7 @@ if(isset($_POST['register']))
     $product_weight = $_POST['product_weight'];
     $product_size = $_POST['product_size'];
     $product_desc = $_POST['product_desc'];
-    $product_img = $_POST['product_img'];
+    // $product_img = $_POST['product_img'];
     $product_category = $_POST['product_category'];
     // add image
     $target_dir = "../resource/img/product/";
@@ -28,8 +28,6 @@ if(isset($_POST['register']))
 
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
         $response = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    }elseif (empty($proName) || empty($proDesc) || empty($proDeli) || empty($custServ) || empty($subcats) ||empty($proCode) ) {
-        $response ='Failed , please fill out all the data';
     }else {
             if (move_uploaded_file($_FILES["product_img"]["tmp_name"], $target_file)) {
                 // insert into products
