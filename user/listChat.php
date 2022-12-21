@@ -27,7 +27,7 @@ function get_words($sentence, $count) {
 <body>
     <!-- judul -->
     <div class="display-inline-block">
-        <i class="fa-solid fa-arrow-left fa-2xl"></i>
+        <a href="../"><i class="fa-solid fa-arrow-left fa-2xl"></i></a>
         <h2>Chat</h2>
     </div>
     <!-- chats -->
