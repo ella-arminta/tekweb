@@ -1,8 +1,6 @@
 <?php
 require 'api/connect.php';
-if(!isset($_SESSION['user_id'])){
-    header('Location: ../');
-}
+
 if(isset($_POST['register']))
 {
     $user_id = $_SESSION['user_id'];
@@ -70,13 +68,11 @@ if(isset($_POST['register']))
             max-height: 1500px;
             border: 5px solid black;
             border-radius: 8px;
-            /* position: absolute; */
-            /* top: 65%;
-            left: 50%; */
-            /* transform: translate(-50%, -50%); */
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 100%;
-            display:block;
-            margin:auto;
         }
 
         .login-form .title {
@@ -187,6 +183,9 @@ if(isset($_POST['register']))
                         </form>
 
                         <button class="btn btn-dark" name="register">ADD Product</button>
+                        <br>
+                        <br>
+                        <button onclick="document.location='../index.php'">Back</button>
                 </div>
             </form>
         </div>
