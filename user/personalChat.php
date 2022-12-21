@@ -57,7 +57,7 @@
         // inisial kamu
     $nama = $kamu['fullname'];
     $array = explode(' ', $nama, 2);
-    $inisial = strtoupper(substr($array[0],0,1) .substr($array[1],0,1));
+    // $inisial = strtoupper(substr($array[0],0,1) .substr($array[1],0,1));
 ?>
 <!doctype html>
 <html lang="en">
