@@ -1,6 +1,9 @@
 <?php
     include 'api/connect.php';
-    $userID = 1;
+    if(!isset($_GET['user_id'])){
+        header('Location: ../index.php');
+    }
+    $userID = $_GET['user_id'];
     $stmt = $conn->prepare("SELECT * FROM user WHERE user_id = ?");
     $stmt->execute([$userID]);
     $row = $stmt->fetch();
