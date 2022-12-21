@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // echo $user['username'];
     if($stmt->rowCount() > 0){
         $_SESSION['user_id'] = $user['user_id'];
-        header("Location: formadd.php "); #masuk
+        header("Location: ../index.php "); #masuk
     }
     else {
         header('Location: login.php?login=failed');

@@ -13,7 +13,6 @@
     $stmt->execute([$product_id]);
     $row = $stmt->fetch();
     }
-    $_SESSION['user_id'] = 5;
 ?>
 
 <!DOCTYPE html>
@@ -109,11 +108,16 @@
                                 <?php
                                     echo '<b>'.$row['fullname'].'</b> @'.$row['username'].'</br>';
                                 ?>
+                                    <?php if(!isset($_SESSION['user_id'])){?>
+                                        <a href = "user/login.php"><button class="btn btn-success" style="margin-top:5%">Login first to Chat/Buy Product</button></a>
+                                    <?php } else{?>
                                     <form action="user/personalChat.php" method="POST">
+                                        <input type="text" style="display:none" name="product_id" value="<?= $product_id ?>">
                                         <input type="text" style="display:none" name="aku_id" value="<?= $_SESSION['user_id']; ?>">
                                         <input type="text" style="display:none" name="dia_id" value="<?= $row['user_id']; ?>">
                                         <button class="btn btn-success"type="submit" style="margin-top:5%">Chat/Buy Product</button>
                                     </form>
+                                    <?php } ?>
                                 </div>
                             </div>
                                 

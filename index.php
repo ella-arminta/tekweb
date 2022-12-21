@@ -149,7 +149,7 @@ include 'api/connect.php';
     </style>
 </head>
 <body style="background-color:#ebd9eb">
-    <nav class="navbar navbar-expand-lg navbar fixed-top bg-dark navbar-dark">
+    <!-- <nav class="navbar navbar-expand-lg navbar fixed-top bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
             <img src="resource/img/logo/logo.png" alt="BelaBeli" width="40" height="40">
@@ -179,7 +179,8 @@ include 'api/connect.php';
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
+    <?php include 'includes/navbar.php' ?>
     <div class="content-box">
         <h1 style="font-size:18pt; margin-bottom:25px; color:black">Shop by Category</h1>
         <div class="resp-category-button-div button-left">

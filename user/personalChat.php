@@ -1,5 +1,8 @@
 <?php
     include 'api/connect.php';
+    if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+        header('Location: listChat.php');
+    }
     if(!isset($_POST['chat_id'])){
         $aku_id = $_POST['aku_id'];
         $kamu_id = $_POST['dia_id'];
@@ -72,7 +75,11 @@
     <!-- navbar -->
     <nav class="nav row">
         <div class="col-2">
+            <?php if(isset($_POST['product_id'])){?>
+                <a href="../detailProduct.php?product_id=<?= $_POST['product_id'] ?>" style="color:black"><i class="fa-solid fa-arrow-left fa-2xl"></i></a>
+            <?php }else{ ?>
             <a href="listChat.php" style="color:black"><i class="fa-solid fa-arrow-left fa-2xl"></i></a>
+            <?php } ?>
         </div>
         <div class="col-2">
             <!-- pp -->

@@ -1,6 +1,8 @@
 <?php
 require 'api/connect.php';
-
+if(!isset($_SESSION['user_id'])){
+    header('Location: ../');
+}
 if(isset($_POST['register']))
 {
     $user_id = $_SESSION['user_id'];
