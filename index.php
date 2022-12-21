@@ -11,10 +11,10 @@ include 'api/connect.php';
     <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <style>
         .content-box {
             width:70%; background-color:#e8907d; margin:auto; margin-top:100px; padding:25px; border-radius:5px
@@ -150,31 +150,66 @@ include 'api/connect.php';
     <?php include "includes/navbar.php"?>
     <div class="content-box">
         <h1 style="font-size:18pt; margin-bottom:25px; color:black">Shop by Category</h1>
-        <div class="resp-category-button-div button-left">
-            <img src="resource/icons/left arrow.png" alt="left" class="resp-category-button">
-        </div>
-        <div class="resp-category-button-div button-right">
-            <img src="resource/icons/right arrow.png" alt="right" class="resp-category-button">
-        </div>
-        <div class="d-flex justify-content-center align-items-center" style="gap:10px;flex-wrap:wrap;">
-            <div class="resp-category" onclick="window.location.href='category.php'">
-                <img src="resource/icons/electronics.png" alt="Electronics" class="resp-category-img">
-                <p class="resp-text">Electronics</p>
+        <div id="multiple-items">
+            <div>
+                <div class="resp-category" onclick="window.location.href='category.php'">
+                    <img src="resource/icons/electronics.png" alt="Electronics" class="resp-category-img">
+                    <p class="resp-text">Electronics</p>
+                </div>
             </div>
-            <div class="resp-category" onclick="window.location.href='category.php'">
-                <img src="resource/icons/furnitures.png" alt="Furnitures" class="resp-category-img">
-                <p class="resp-text">Furnitures</p>
+            <div>
+                <div class="resp-category" onclick="window.location.href='category.php'">
+                    <img src="resource/icons/furnitures.png" alt="Furnitures" class="resp-category-img">
+                    <p class="resp-text">Furnitures</p>
+                </div>
             </div>
-            <div class="resp-category" onclick="window.location.href='category.php'">
-                <img src="resource/icons/mens fashion.png" alt="Men's Fashion" class="resp-category-img">
-                <p class="resp-text">Men's Fashion</p>
+            <div>
+                <div class="resp-category" onclick="window.location.href='category.php'">
+                    <img src="resource/icons/mens fashion.png" alt="Men's Fashion" class="resp-category-img">
+                    <p class="resp-text">Men's Fashion</p>
+                </div>
             </div>
-            <div class="resp-category" onclick="window.location.href='category.php'">
-                <img src="resource/icons/womens fashion.png" alt="Women's Fashion" class="resp-category-img">
-                <p class="resp-text">Women's Fashion</p>
+            <div>
+                <div class="resp-category" onclick="window.location.href='category.php'">
+                    <img src="resource/icons/womens fashion.png" alt="Women's Fashion" class="resp-category-img">
+                    <p class="resp-text">Women's Fashion</p>
+                </div>
+            </div>
+            <div>
+                <div class="resp-category" onclick="window.location.href='category.php'">
+                    <img src="resource/icons/mobile phones.png" alt="Mobile Phones" class="resp-category-img">
+                    <p class="resp-text">Mobile Phones</p>
+                </div>
+            </div>
+            <div>
+                <div class="resp-category" onclick="window.location.href='category.php'">
+                    <img src="resource/icons/photography.png" alt="Photography" class="resp-category-img">
+                    <p class="resp-text">Photography</p>
+                </div>
+            </div>
+            <div>
+                <div class="resp-category" onclick="window.location.href='category.php'">
+                    <img src="resource/icons/stationery.png" alt="Stationery" class="resp-category-img">
+                    <p class="resp-text">Stationery</p>
+                </div>
+            </div>
+            <div>
+                <div class="resp-category" onclick="window.location.href='category.php'">
+                    <img src="resource/icons/video games.png" alt="Video Games" class="resp-category-img">
+                    <p class="resp-text">Video Games</p>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#multiple-items').slick({
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 4
+            });
+        })
+    </script>
     <div class="content-box" style="margin-top:30px; margin-bottom:40px">
         <h1 style="font-size:18pt; margin-bottom:25px; color:black">Products</h1>
         <div class="d-flex justify-content-center" style="flex-wrap:wrap;gap:10px;">
@@ -188,37 +223,7 @@ include 'api/connect.php';
                 <p class="resp-text bold-text"><?= $row['product_name'] ?></p>
             </div>
             <?php endwhile; ?>
-            <!-- <div class="resp-product">
-                <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
-                <p class="resp-text bold-text">Pajamas</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/shoes.jpg" alt="Shoes" class="resp-product-img">
-                <p class="resp-text bold-text">Shoes</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/cap.jpg" alt="Cap" class="resp-product-img">
-                <p class="resp-text bold-text">Cap</p>
-            </div> -->
         </div>
-        <!-- <div class="d-flex justify-content-between">
-            <div class="resp-product">
-                <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
-                <p class="resp-text bold-text">Pajamas</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/shoes.jpg" alt="Shoes" class="resp-product-img">
-                <p class="resp-text bold-text">Shoes</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/cap.jpg" alt="Cap" class="resp-product-img">
-                <p class="resp-text bold-text">Cap</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
-                <p class="resp-text bold-text">Pajamas</p>
-            </div>
-        </div> -->
     </div>
     <footer style="padding:20px">
         <p class="text-dark" style="text-align:center; font-size:12px; color:#8c52ff">© 2022 BelaBeli</p>
