@@ -4,17 +4,16 @@
     //     header('Location: ../index.php');
     // }
     $userID = $_GET['user_id'];
-    $userID = 1;
     $stmt = $conn->prepare("SELECT * FROM user WHERE user_id = ?");
     $stmt->execute([$userID]);
     $row = $stmt->fetch();
 
     if (isset($_POST['searchIcon'])) {
         $item = trim($_POST['searchToko']);
-        header('Location: detailToko.php?item='.$item.'&mes=find');
+        header('Location: detailToko.php?user_id='.$userID.'&item='.$item.'&mes=find');
     }
     else if (isset($_POST['crossIcon']))  {
-        header('Location: detailToko.php');
+        header('Location: detailToko.php?user_id='.$userID);
     }
 ?>
 
