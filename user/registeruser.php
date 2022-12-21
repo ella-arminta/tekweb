@@ -15,8 +15,8 @@
 				$conn->exec($sql);
                 
                 $message = "Data Success Register!";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-            header('location:login.php');
+                echo "<script type='text/javascript'>alert('$message');window.location = 'login.php'</script>";
+                // header('location:login.php');
 			}catch(PDOException $e){
 				echo $e->getMessage();
 			}
