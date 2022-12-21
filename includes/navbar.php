@@ -41,6 +41,9 @@
                     <a class="nav-link" href="user/listChat.php">Chat</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="favourites.php">Favourites</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="user/formadd.php">Sell Product</a>
                 </li>
                 <!-- logout -->

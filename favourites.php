@@ -1,9 +1,5 @@
 <?php
 include 'api/connect.php';
-if ($_SERVER['REQUEST_METHOD'] != 'GET' or !isset($_GET['nama'])) {
-    header('Location: index.php');
-}
-$productNama = $_GET['nama'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -158,11 +154,11 @@ $productNama = $_GET['nama'];
 <body style="background-color:#ebd9eb">
     
     <div class="content-box" style="margin-top:100px; margin-bottom:40px;width:80%;flex-wrap:wrap;">
-        <h1 style="font-size:18pt; margin-bottom:25px; color:black">Products</h1>
-        <div class="d-flex justify-content-between">
+        <h1 style="font-size:18pt; margin-bottom:25px; color:black">Favourites</h1>
+        <div class="d-flex justify-content-center" style="flex-wrap:wrap;gap:20px;">
             <?php
-                $stmt = $conn->prepare("SELECT * FROM product where product_name like ?");
-                $stmt->execute(['%'.$productNama.'%']);
+                $stmt = $conn->prepare("SELECT * FROM product p join favourites f on p.product_id = f.product_id where f.golike = 1");
+                $stmt->execute();
                 if ($stmt->rowCount() == 0){
                     echo 'No Product Found';
                 }else{
