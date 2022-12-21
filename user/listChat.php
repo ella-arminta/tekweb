@@ -27,6 +27,14 @@ function get_words($sentence, $count) {
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/e52db3bf8a.js" crossorigin="anonymous"></script>
 </head>
+<style>
+    .pp {
+                height : 170px;
+                object-fit : cover;
+                width : 96%;
+                border-radius : 200px;
+            }
+</style>
 <body>
     <!-- judul -->
     <div class="display-inline-block">
@@ -68,14 +76,16 @@ function get_words($sentence, $count) {
                     <!-- pp -->
                     <div class="col-3">
                         <!-- <img src="https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg" class="pp" alt=""> -->
-                        <div class="pp">
+                        <!-- <div class="pp"> -->
                             <?php
-                                $nama = $dia['fullname'];
-                                $array = explode(' ', $nama, 2);
-                                $inisial = strtoupper(substr($array[0],0,1) .substr($array[1],0,1)); 
-                                echo $inisial ;
+                                // $nama = $dia['fullname'];
+                                // $array = explode(' ', $nama, 2);
+                                // $inisial = strtoupper(substr($array[0],0,1) .substr($array[1],0,1)); 
+                                // echo $inisial ;
                             ?>
-                        </div>
+<!--                             
+                        </div> -->
+                        <img class="rounded-circle shadow-4-strong pp" alt="avatar2" src="../<?= $dia['profilepic'] ?>">
                     </div>
                     <div class="col-7">
                         <h4 style="display:inline-block"><?= $dia['username'] ?></h4>

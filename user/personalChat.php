@@ -85,9 +85,10 @@
             <!-- pp -->
             <div class="col-3">
                 <!-- <img src="https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg" class="pp" alt=""> -->
-                <div class="pp">
-                    <?= $inisial ?>
-                </div>
+                <!-- <div class="pp">
+                    <?php // $inisial ?>
+                </div> -->
+                <img src="../<?= $kamu['profilepic'] ?>" style="object-fit:cover" class="pp" alt="">
             </div>
         </div>
         <div class="col-8">

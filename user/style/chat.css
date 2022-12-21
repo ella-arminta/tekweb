@@ -13,7 +13,7 @@ html,body{
     margin-left: 20px;
 }
 .chat-row{
-    background-color: rgb(241, 241, 241);
+    background-color: #ebd9eb;
     padding: 2vw;
     width: 100%;
     margin: 0;
@@ -24,7 +24,7 @@ html,body{
     cursor: pointer;
 }
 .chat-row:hover{
-    background-color: rgb(220, 220, 220);
+    background-color: #eccdec;
 }
 .pp{
     width: auto;
