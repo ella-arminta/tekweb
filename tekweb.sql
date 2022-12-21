@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2022 at 07:48 AM
+-- Generation Time: Dec 21, 2022 at 12:45 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -126,7 +126,10 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_w
 (1, 'baju tidur', 25000, 300, 'M', 'baju baru belum pernah dipakai', 'pakaian', 1, 'resource/img/product/pajamas.jpg'),
 (2, 'topi', 20000, 100, 'all size', 'topi pernah dipakai', 'topi', 1, 'resource/img/product/cap.jpg'),
 (3, 'sepatu', 50000, 1000, '37', 'sepatu cuma pernah dicoba, belum pernah pakai', 'sepatu', 1, 'resource/img/product/shoes.jpg'),
-(4, 'tas', 40000, 1200, 'medium', 'pamakaian 1 bulan', 'tas', 1, NULL);
+(4, 'tas', 40000, 1200, 'medium', 'pamakaian 1 bulan', 'tas', 1, NULL),
+(5, 'aefhse', 1011, 1, 'M', 'enak', '4', 9, 'logobb.PNG'),
+(6, 'Nasi Goreng', 11111, 1, '10meter', 'sdwdwdwd', '4', 9, 'IMG_1539.jpg'),
+(7, 'Nasi Goreng', 23320, 1000, '10meter', 'dnadnaldnaf', '4', 12, '');
 
 -- --------------------------------------------------------
 
@@ -138,7 +141,7 @@ CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `username` varchar(300) NOT NULL,
   `fullname` varchar(500) NOT NULL,
-  `password` varchar(10) NOT NULL, 
+  `password` text NOT NULL,
   `profilepic` text DEFAULT 'resource/img/user/blank.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -151,7 +154,14 @@ INSERT INTO `user` (`user_id`, `username`, `fullname`, `password`, `profilepic`)
 (2, 'floaudrina', 'floren audrina', 'flow', 'resource/img/user/wednesday.jpg'),
 (3, 'felithepooh', 'felina evangelica', 'feli', 'resource/img/user/pooh.jpg'),
 (4, 'angel', 'jeanne angeline siemon', 'angels', 'resource/img/user/blank.jpg'),
-(5, 'ella', 'Ella Arminta', 'lala', 'resource/img/user/moneyheist.jpg');
+(5, 'ella', 'Ella Arminta', 'lala', 'resource/img/user/moneyheist.jpg'),
+(6, 'admin1a', '', 'ajfejdalfa', 'IMG_1539.jpg'),
+(7, 'sdsds', '', 'sdsdsdsds', 'PRICE-LIST-LASERCUTTING-ACRILIC-2017.jpg'),
+(8, 'suci ganteng', 'michael suci', 'gantengg', 'S__21643272.jpg'),
+(9, 'winner', 'michael sucis', 'winner', ''),
+(10, 'ivana', 'micheele iv', 'ivana1', ''),
+(11, 'ivana1', 'micheele ivww', 'ivana', ''),
+(12, 'noshiko', 'nasiii', 'yesyes', '');
 
 --
 -- Indexes for dumped tables
@@ -202,13 +212,13 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
