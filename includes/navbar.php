@@ -21,8 +21,8 @@
                 </li>
             </ul>
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn search-button" type="submit">
+                <input class="form-control me-2 searchInput" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn search-button" type="button">
                     <img src="resource/icons/search.png" alt="Search" width="25" height="25">
                 </button>
             </form>
@@ -53,3 +53,9 @@
         </div>
     </div>
 </nav>
+<script>
+    document.querySelector('.search-button').addEventListener('click',function(){
+        var theval = document.querySelector('.searchInput').value
+        window.location.href = 'searchProduct.php?nama='+theval;
+    })
+</script>
