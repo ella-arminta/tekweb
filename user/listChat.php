@@ -44,7 +44,7 @@ function get_words($sentence, $count) {
     <!-- chats -->
     <div class="chats">
         <?php
-        if($chat_ids > 0){
+        if(count($chat_ids) > 0){
             $placeHolders = implode(', ', array_fill(0, count($chat_ids), '?'));
             $stmt = $conn->prepare("SELECT * FROM message m1 
             join chat c on m1.chat_id = c.chat_id
@@ -130,6 +130,8 @@ function get_words($sentence, $count) {
                 </form>
                 <?php
             }
+        }else{
+            echo '<h1 style="text-align:center">Belum ada chat</h1>';
         }
         ?>
     </div>
