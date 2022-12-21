@@ -88,17 +88,17 @@
             <div class="row">
                 <?php include 'includes/navbar.php'; ?>
             </div>
-            <div class="row bg-danger">
+            <!-- <div class="row bg-danger">
                 <div class="col-md-2">
-                    <img class="logo" src="resource/img/logo/logo.PNG">
+                    <img class="logo" src="resource/img/logo/logo.PNG"> -->
                     <!-- <h3 style="float">BelaBeli.com</h3> -->
-                </div>
+                <!-- </div>
                 <div class="col-md-10">
                     <p> search <p>
                 </div>
-            </div>
+            </div> -->
             <br>
-            <div class="row">
+            <div class="row" style="margin-top:66px">
                 <div class="col-md-3 col-sm-2 user">
                     <div class="row">
                         <?php 

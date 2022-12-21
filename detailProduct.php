@@ -7,12 +7,13 @@
     $product_id = $_GET['product_id'];
 
     $sql = 'SELECT * 
-            FROM product
-            WHERE product_id = ?';
+            FROM product p join user u on p.user_id = u.user_id
+            WHERE p.product_id = ?';
     $stmt = $conn->prepare($sql);
     $stmt->execute([$product_id]);
     $row = $stmt->fetch();
     }
+    $_SESSION['user_id'] = 5;
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +47,12 @@
             border-style: inset;
             border-width: 1px;
             }
+            .pp {
+                height: 100px;
+                object-fit: cover;
+                width: 100px;
+                border-radius: 200px;
+            }
         </style>
     </head>
     <body>
@@ -55,7 +62,7 @@
             </div>
             <br>
 
-            <div class="row">
+            <div class="row" style="margin-top:66px">
                 <div class="col-md-4 col-sm-4 photo">
                     <div class="container border border-dark border-opacity-25 rounded-1">
                         <?php
@@ -89,30 +96,35 @@
                             ?>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <br>
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="container border border-dark border-opacity-25 p-5 rounded-1">
-                            halo
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
+                    <div style="width:100%display:flex;justify-content:center;align-items:center;">
+                        <div style="width:80%;box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;border-radius:30px;padding:20px;margin-top:10px;">
+                            <div class="row justify-content-start">
+                                <div class="col-3">
+                                    <!-- profile picture -->
+                                    <?php 
+                                        echo '<img class="rounded-circle shadow-4-strong pp" alt="avatar2" src="'.$row['profilepic'].'">';
+                                    ?>
+                                </div>
+                                <div class="col-9">
+                                <?php
+                                    echo '<b>'.$row['fullname'].'</b> @'.$row['username'].'</br>';
+                                ?>
+                                    <form action="user/personalChat.php" method="POST">
+                                        <input type="text" style="display:none" name="aku_id" value="<?= $_SESSION['user_id']; ?>">
+                                        <input type="text" style="display:none" name="dia_id" value="<?= $row['user_id']; ?>">
+                                        <button class="btn btn-success"type="submit" style="margin-top:5%">Chat/Buy Product</button>
+                                    </form>
+                                </div>
+                            </div>
+                                
+                            <div></div>
                         </div>
+                    </div>
                 </div>
-            </div>
 
+                
+
+            </div>
         </div>
     </body>
 </html>

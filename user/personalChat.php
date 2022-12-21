@@ -24,7 +24,7 @@
                 }
             }
             if(!$valid){ // kalo gk ada 2-2 nya :
-                header('Location: ../');
+                // header('Location: ../');
             }
             // kalo valid maka buat ruang chat baru
             $stmt = $conn->prepare("INSERT INTO chat (user_id1,user_id2) values (?,?)");
