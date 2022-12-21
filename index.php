@@ -1,3 +1,7 @@
+<?php
+include 'api/connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,6 +143,9 @@
                 margin-left:15px; margin-right:15px;
             }
         }
+        .justify-content-between{
+            flex-wrap:wrap;
+        }
     </style>
 </head>
 <body style="background-color:#ebd9eb">
@@ -221,10 +228,31 @@
     <div class="content-box" style="margin-top:30px; margin-bottom:40px">
         <h1 style="font-size:18pt; margin-bottom:25px; color:black">Products</h1>
         <div class="d-flex justify-content-between">
+            <?php
+                $stmt= $conn->prepare("SELECT * FROM product");
+                $stmt->execute();
+                while($row = $stmt->fetch()):
+            ?>
+            <div class="resp-product" onclick="window.location.href = 'detailProduct.php?product_id=<?= $row['product_id'] ?>'">
+                <img src="<?= $row['product_img'] ?>" alt="<?= $row['product_name'] ?>" class="resp-product-img">
+                <p class="resp-text bold-text"><?= $row['product_name'] ?></p>
+            </div>
+            <?php endwhile; ?>
+<!--             
+            <div class="resp-product">
+                <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
+                <p class="resp-text bold-text">Pajamas</p>
+            </div>
+            <div class="resp-product">
+                <img src="resource/img/product/shoes.jpg" alt="Shoes" class="resp-product-img">
+                <p class="resp-text bold-text">Shoes</p>
+            </div>
             <div class="resp-product">
                 <img src="resource/img/product/cap.jpg" alt="Cap" class="resp-product-img">
                 <p class="resp-text bold-text">Cap</p>
-            </div>
+            </div> -->
+        </div>
+        <!-- <div class="d-flex justify-content-between">
             <div class="resp-product">
                 <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
                 <p class="resp-text bold-text">Pajamas</p>
@@ -237,25 +265,11 @@
                 <img src="resource/img/product/cap.jpg" alt="Cap" class="resp-product-img">
                 <p class="resp-text bold-text">Cap</p>
             </div>
-        </div>
-        <div class="d-flex justify-content-between">
             <div class="resp-product">
                 <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
                 <p class="resp-text bold-text">Pajamas</p>
             </div>
-            <div class="resp-product">
-                <img src="resource/img/product/shoes.jpg" alt="Shoes" class="resp-product-img">
-                <p class="resp-text bold-text">Shoes</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/cap.jpg" alt="Cap" class="resp-product-img">
-                <p class="resp-text bold-text">Cap</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
-                <p class="resp-text bold-text">Pajamas</p>
-            </div>
-        </div>
+        </div> -->
     </div>
     <footer style="padding:20px">
         <p class="text-dark" style="text-align:center; font-size:12px; color:#8c52ff">© 2022 BelaBeli</p>

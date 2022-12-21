@@ -1,6 +1,9 @@
 <?php
 include 'api/connect.php';
-$aku_id = 2;
+if(!isset($_SESSION['user_id'])){
+    header('Location: ../index.php');
+}
+$aku_id = $_SESSION['user_id'];
 $chat_ids = [];
 $stmt = $conn->prepare("SELECT * FROM chat where user_id1 =? or user_id2 =?");
 $stmt->execute([$aku_id,$aku_id]);
