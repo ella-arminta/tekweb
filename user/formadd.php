@@ -19,26 +19,44 @@ if(isset($_POST['register']))
     $product_desc = $_POST['product_desc'];
     $product_img = $_POST['product_img'];
     $product_category = $_POST['product_category'];
-    
-    // mysql query to insert data
+    // add image
+    $target_dir = "../resource/img/product/";
+    $rename = time().'-'.basename($_FILES["product_img"]["name"]);
+    $target_file = $target_dir . $rename;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $img_name = 'resource/img/product/'.$rename;
 
-    $pdoQuery = "INSERT INTO `product`(`product_name`, `product_price`, `product_weight`, `product_size`, `product_desc` , `product_img`,`user_id`, `product_category`) 
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+        $response = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    }elseif (empty($proName) || empty($proDesc) || empty($proDeli) || empty($custServ) || empty($subcats) ||empty($proCode) ) {
+        $response ='Failed , please fill out all the data';
+    }else {
+            if (move_uploaded_file($_FILES["product_img"]["tmp_name"], $target_file)) {
+                // insert into products
+                // mysql query to insert data
+
+                $pdoQuery = "INSERT INTO `product`(`product_name`, `product_price`, `product_weight`, `product_size`, `product_desc` , `product_img`,`user_id`, `product_category`) 
                 VALUES (:product_name, :product_price, :product_weight, :product_size, :product_desc, :product_img,:user_id,:product_category)";
-    
-    $pdoResult = $conn->prepare($pdoQuery);
-    
-    $pdoExec = $pdoResult->execute(array(":product_name"=>$product_name,":product_price"=>$product_price,":product_weight"=>$product_weight
-                    ,":product_size"=>$product_size,":product_desc"=>$product_desc,":product_img"=>$product_img,":user_id"=>$user_id,":product_category"=>$product_category));
-    
-        // check if mysql insert query successful
-    if($pdoExec)
-    {
-        $message = "Data Inserted";
-        echo "<script type='text/javascript'>alert('$message');</script>";
 
-    }else{
-        $message = "Data not Inserted";
-        echo "<script type='text/javascript'>alert('$message');</script>";
+                $pdoResult = $conn->prepare($pdoQuery);
+
+                $pdoExec = $pdoResult->execute(array(":product_name"=>$product_name,":product_price"=>$product_price,":product_weight"=>$product_weight
+                        ,":product_size"=>$product_size,":product_desc"=>$product_desc,":product_img"=>$img_name,":user_id"=>$user_id,":product_category"=>$product_category));
+
+                // check if mysql insert query successful
+                if($pdoExec)
+                {
+                $message = "Data Inserted";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+
+                }else{
+                $message = "Data not Inserted";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+                }
+            }else{
+                $message = "Data not Inserted";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+            }
     }
 }
 
@@ -109,7 +127,7 @@ if(isset($_POST['register']))
 
             <?=isset($msg) ? '<div class="alert alert-danger">'.$msg.'</div>' : ''?>
 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nama Product</label>
                     <input type="text" class="form-control" placeholder="Masukkan nama product" id="exampleInputEmail1"
@@ -159,12 +177,12 @@ if(isset($_POST['register']))
                     <p>Kategori Product</p>
                     <select class="form-select" name="product_category">
                         <option value="0">Choose...</option>
-                        <option value="1">Baju</option>
-                        <option value="2">Tas</option>
-                        <option value="3">Sepatu</option>
-                        <option value="4">Topi</option>
-                        <option value="5">Peralatan Kantor</option>
-                        <option value="6">Peralatan Sekolah</option>
+                        <option value="baju">Baju</option>
+                        <option value="tas">Tas</option>
+                        <option value="sepatu">Sepatu</option>
+                        <option value="topi">Topi</option>
+                        <option value="kantor">Peralatan Kantor</option>
+                        <option value="sekolah">Peralatan Sekolah</option>
                     </select>
                 </div>
 
