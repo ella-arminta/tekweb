@@ -13,9 +13,7 @@ if(mysqli_num_rows($result) > 0){
     header("Locations: formadd.php ");
 }
 else {
-    echo "<center><h1> Email atau Password Anda Salah. Silahkan Coba Login kembali.</h1>
-    <button><strong><a href = 'login.php'>Login </a><strong></button></center>";
-}
+    echo "<center><h1> Email atau Password Anda Salah. Silahkan Coba Login kembali.</h1>";}
 ?>
 
 <!DOCTYPE html>
