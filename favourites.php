@@ -55,6 +55,7 @@ include 'api/connect.php';
             width:180px; height:250px; background-color:white; padding:5px;
             border-radius:5px; border:2px solid white;
             margin-bottom:25px;
+            cursor:pointer;
         }
         .resp-product:hover {
             border:2px solid #8c52ff;
@@ -147,6 +148,9 @@ include 'api/connect.php';
         }
         .justify-content-between{
             flex-wrap:wrap;
+        }
+        .resp-product{
+            cursor:pointer;
         }
     </style>
 </head>

@@ -123,19 +123,19 @@
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Fullname</label>
                     <input type="text" class="form-control" placeholder="Enter Fullname" id="exampleInputEmail1"
-                        name="fullname">
+                        name="fullname" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Username</label>
                     <input type="text" class="form-control" placeholder="Enter Username" id="exampleInputEmail1"
-                        name="username">
+                        name="username" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" class="form-control" placeholder="Enter Password" id="exampleInputPassword1"
-                        name="password">
+                        name="password" required>
                     <small id="passwordHelpBlock" class="form-text text-muted">
                         Your password must be 8-20 characters long, contain letters and numbers, and must not contain
                         spaces, special characters, or emoji.
