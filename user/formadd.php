@@ -1,4 +1,43 @@
 <?php
+require 'api/connect.php';
+
+if(isset($_POST['register']))
+{
+    try {
+        // connect to mysql
+        $conn = new PDO("mysql:host=localhost;dbname=test_db","root","");
+    } catch (PDOException $exc) {
+        echo $exc->getMessage();
+        exit();
+    }
+    // get values form input text and number
+    $product_name = $_POST['product_name'];
+    $product_price = $_POST['product_price'];
+    $product_weight = $_POST['product_weight'];
+    $product_size = $_POST['product_size'];
+    $product_desc = $_POST['product_desc'];
+    $product_img = $_POST['product_img'];
+    
+    // mysql query to insert data
+
+    $pdoQuery = "INSERT INTO `users`(`product_name`, `product_price`, `product_weight`, `product_size`, `product_desc` , `product_img`) 
+                VALUES (:product_name, :product_price, :product_weight, :product_size, :product_desc, :product_img)";
+    
+    $pdoResult = $conn->prepare($pdoQuery);
+    
+    $pdoExec = $pdoResult->execute(array(":product_name"=>$product_name,":product_price"=>$product_price,":product_weight"=>$product_weight
+                    ,":product_size"=>$product_size,":product_desc"=>$product_desc,":product_img"=>$product_img));
+    
+        // check if mysql insert query successful
+    if($pdoExec)
+    {
+        echo 'Data Inserted';
+    }else{
+        echo 'Data Not Inserted';
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -69,17 +108,18 @@
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nama Product</label>
                     <input type="text" class="form-control" placeholder="Masukkan nama product" id="exampleInputEmail1"
-                        name="username">
+                        name="product_name">
                 </div>
 
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Input Picture Product</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" type="file" id="formFile" name="product_img">
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1">Keterangan Product</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        name="product_desc"></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -89,7 +129,7 @@
                             <span class="input-group-text" id="validationTooltipUsernamePrepend">Rp</span>
                         </div>
                         <input type="number" min="10.00" step="1.00" value="10.00" id="exampleInputAmount"
-                            class="form-control" placeholder="Price">
+                            class="form-control" placeholder="Price" name="product_price">
                     </div>
                 </div>
 
@@ -100,19 +140,19 @@
                             <span class="input-group-text" id="validationTooltipUsernamePrepend">Gram</span>
                         </div>
                         <input type="number" min="1" step="1" value="1" id="exampleInputAmount" class="form-control"
-                            placeholder="Price">
+                            placeholder="Price" name="product_weight">
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Size Product</label>
                     <input type="text" class="form-control" placeholder="Masukkan size product" id="exampleInputEmail1"
-                        name="username">
+                        name="product_size">
                 </div>
 
                 <div class="mb-3">
                     <p>Kategori Product</p>
-                    <select class="form-select" name="jenis_pengiriman">
+                    <select class="form-select" name="product_category">
                         <option value="0">Choose...</option>
                         <option value="1">Baju</option>
                         <option value="2">Tas</option>
