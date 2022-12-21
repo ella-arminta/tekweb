@@ -52,11 +52,13 @@
             max-width: 700px;
             border: 5px solid red;
             border-radius: 8px;
-            position: absolute;
+            /* position: absolute;
             top: 53%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); */
             width: 100%;
+            display:block;
+            margin:auto;
         }
 
         .login-form .title {

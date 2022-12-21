@@ -52,6 +52,11 @@
                 width: 100px;
                 border-radius: 200px;
             }
+            @media(max-width:777px){
+                .tulisan{
+                    text-align:center;
+                }
+            }
         </style>
     </head>
     <body>
@@ -95,16 +100,16 @@
                             ?>
                         </div>
                     </div>
-                    <div style="width:100%display:flex;justify-content:center;align-items:center;">
+                    <div style="width:100%;display:flex;justify-content:center;align-items:center;">
                         <div onclick="window.location.href = 'detailToko.php?user_id=<?= $row['user_id']?>'" style="width:80%;box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;border-radius:30px;padding:20px;margin-top:10px;cursor:pointer">
                             <div class="row justify-content-start">
-                                <div class="col-3">
+                                <div class="col-md-3" style="display:flex;justify-content:center;align-items:center">
                                     <!-- profile picture -->
                                     <?php 
                                         echo '<img class="rounded-circle shadow-4-strong pp" alt="avatar2" src="'.$row['profilepic'].'">';
                                     ?>
                                 </div>
-                                <div class="col-9">
+                                <div class="col-md-9 tulisan">
                                 <?php
                                     echo '<b>'.$row['fullname'].'</b> @'.$row['username'].'</br>';
                                 ?>

@@ -12,7 +12,10 @@ $productNama = $_GET['nama'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <style>
         .search-button {
@@ -143,7 +146,7 @@ $productNama = $_GET['nama'];
         @media only screen and (max-width: 630px) {
             .content-box {
                 width:600px; background-color:#e8907d; margin-top:100px; padding:20px; border-radius:5px;
-                margin-left:15px; margin-right:15px;
+                /* margin-left:15px; margin-right:15px; */
             }
         }
         .justify-content-between{
@@ -151,40 +154,10 @@ $productNama = $_GET['nama'];
         }
     </style>
 </head>
+<?php include 'includes/navbar.php' ?>
 <body style="background-color:#ebd9eb">
-    <!-- <nav class="navbar navbar-expand-lg navbar fixed-top bg-dark navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
-            <img src="resource/img/logo/logo.png" alt="BelaBeli" width="40" height="40">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.php">BelaBeli.com</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn search-button" type="submit">
-                        <img src="resource/icons/search.png" alt="Search" width="25" height="25">
-                    </button>
-                </form>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="user/registeruser.php">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="user/login.php">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-    <?php include 'includes/navbar.php' ?>
-    <div class="content-box" style="margin-top:100px; margin-bottom:40px">
+    
+    <div class="content-box" style="margin-top:100px; margin-bottom:40px;width:80%;flex-wrap:wrap;">
         <h1 style="font-size:18pt; margin-bottom:25px; color:black">Products</h1>
         <div class="d-flex justify-content-between">
             <?php
@@ -200,38 +173,7 @@ $productNama = $_GET['nama'];
                 <p class="resp-text bold-text"><?= $row['product_name'] ?></p>
             </div>
             <?php }} ?>
-<!--             
-            <div class="resp-product">
-                <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
-                <p class="resp-text bold-text">Pajamas</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/shoes.jpg" alt="Shoes" class="resp-product-img">
-                <p class="resp-text bold-text">Shoes</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/cap.jpg" alt="Cap" class="resp-product-img">
-                <p class="resp-text bold-text">Cap</p>
-            </div> -->
         </div>
-        <!-- <div class="d-flex justify-content-between">
-            <div class="resp-product">
-                <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
-                <p class="resp-text bold-text">Pajamas</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/shoes.jpg" alt="Shoes" class="resp-product-img">
-                <p class="resp-text bold-text">Shoes</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/cap.jpg" alt="Cap" class="resp-product-img">
-                <p class="resp-text bold-text">Cap</p>
-            </div>
-            <div class="resp-product">
-                <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
-                <p class="resp-text bold-text">Pajamas</p>
-            </div>
-        </div> -->
     </div>
     <footer style="padding:20px">
         <p class="text-dark" style="text-align:center; font-size:12px; color:#8c52ff">© 2022 BelaBeli</p>

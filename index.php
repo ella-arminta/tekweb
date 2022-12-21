@@ -11,6 +11,10 @@ include 'api/connect.php';
     <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         .content-box {
             width:70%; background-color:#e8907d; margin:auto; margin-top:100px; padding:25px; border-radius:5px
@@ -128,13 +132,13 @@ include 'api/connect.php';
         }
         @media only screen and (max-width: 750px) {
             .content-box {
-                width:600px; background-color:#e8907d; margin:auto; margin-top:100px; padding:20px; border-radius:5px
+               background-color:#e8907d; margin:auto; margin-top:100px; padding:20px; border-radius:5px
             }
         }
         @media only screen and (max-width: 630px) {
             .content-box {
-                width:600px; background-color:#e8907d; margin-top:100px; padding:20px; border-radius:5px;
-                margin-left:15px; margin-right:15px;
+                background-color:#e8907d; margin-top:100px; padding:20px; border-radius:5px;
+              
             }
         }
         .justify-content-between{
@@ -152,7 +156,7 @@ include 'api/connect.php';
         <div class="resp-category-button-div button-right">
             <img src="resource/icons/right arrow.png" alt="right" class="resp-category-button">
         </div>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-center align-items-center" style="gap:10px;flex-wrap:wrap;">
             <div class="resp-category" onclick="window.location.href='category.php'">
                 <img src="resource/icons/electronics.png" alt="Electronics" class="resp-category-img">
                 <p class="resp-text">Electronics</p>
@@ -173,7 +177,7 @@ include 'api/connect.php';
     </div>
     <div class="content-box" style="margin-top:30px; margin-bottom:40px">
         <h1 style="font-size:18pt; margin-bottom:25px; color:black">Products</h1>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-center" style="flex-wrap:wrap;gap:10px;">
             <?php
                 $stmt= $conn->prepare("SELECT * FROM product");
                 $stmt->execute();

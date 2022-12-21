@@ -70,11 +70,13 @@ if(isset($_POST['register']))
             max-height: 1500px;
             border: 5px solid black;
             border-radius: 8px;
-            position: absolute;
-            top: 65%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            /* position: absolute; */
+            /* top: 65%;
+            left: 50%; */
+            /* transform: translate(-50%, -50%); */
             width: 100%;
+            display:block;
+            margin:auto;
         }
 
         .login-form .title {
