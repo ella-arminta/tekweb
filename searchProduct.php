@@ -1,7 +1,10 @@
 <?php
 include 'api/connect.php';
+if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+    header('Location: index.php');
+}
+$productNama = $_GET['nama'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +15,12 @@ include 'api/connect.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <style>
+        .search-button {
+            background-color:#ebd9eb
+        }
+        .search-button:hover {
+            background-color:#8c52ff
+        }
         .content-box {
             width:70%; background-color:#e8907d; margin:auto; margin-top:100px; padding:25px; border-radius:5px
         }
@@ -143,48 +152,56 @@ include 'api/connect.php';
     </style>
 </head>
 <body style="background-color:#ebd9eb">
-    <?php include "includes/navbar.php"?>
-    <div class="content-box">
-        <h1 style="font-size:18pt; margin-bottom:25px; color:black">Shop by Category</h1>
-        <div class="resp-category-button-div button-left">
-            <img src="resource/icons/left arrow.png" alt="left" class="resp-category-button">
+    <!-- <nav class="navbar navbar-expand-lg navbar fixed-top bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">
+            <img src="resource/img/logo/logo.png" alt="BelaBeli" width="40" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.php">BelaBeli.com</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn search-button" type="submit">
+                        <img src="resource/icons/search.png" alt="Search" width="25" height="25">
+                    </button>
+                </form>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="user/registeruser.php">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user/login.php">Login</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="resp-category-button-div button-right">
-            <img src="resource/icons/right arrow.png" alt="right" class="resp-category-button">
-        </div>
-        <div class="d-flex justify-content-between">
-            <div class="resp-category" onclick="window.location.href='category.php'">
-                <img src="resource/icons/electronics.png" alt="Electronics" class="resp-category-img">
-                <p class="resp-text">Electronics</p>
-            </div>
-            <div class="resp-category" onclick="window.location.href='category.php'">
-                <img src="resource/icons/furnitures.png" alt="Furnitures" class="resp-category-img">
-                <p class="resp-text">Furnitures</p>
-            </div>
-            <div class="resp-category" onclick="window.location.href='category.php'">
-                <img src="resource/icons/mens fashion.png" alt="Men's Fashion" class="resp-category-img">
-                <p class="resp-text">Men's Fashion</p>
-            </div>
-            <div class="resp-category" onclick="window.location.href='category.php'">
-                <img src="resource/icons/womens fashion.png" alt="Women's Fashion" class="resp-category-img">
-                <p class="resp-text">Women's Fashion</p>
-            </div>
-        </div>
-    </div>
-    <div class="content-box" style="margin-top:30px; margin-bottom:40px">
+    </nav> -->
+    <?php include 'includes/navbar.php' ?>
+    <div class="content-box" style="margin-top:100px; margin-bottom:40px">
         <h1 style="font-size:18pt; margin-bottom:25px; color:black">Products</h1>
         <div class="d-flex justify-content-between">
             <?php
-                $stmt= $conn->prepare("SELECT * FROM product");
-                $stmt->execute();
-                while($row = $stmt->fetch()):
+                $stmt = $conn->prepare("SELECT * FROM product where product_name like ?");
+                $stmt->execute(['%'.$productNama.'%']);
+                if ($stmt->rowCount() == 0){
+                    echo 'No Product Found';
+                }else{
+                while($row = $stmt->fetch()){
             ?>
             <div class="resp-product" onclick="window.location.href = 'detailProduct.php?product_id=<?= $row['product_id'] ?>'">
                 <img src="<?= $row['product_img'] ?>" alt="<?= $row['product_name'] ?>" class="resp-product-img">
                 <p class="resp-text bold-text"><?= $row['product_name'] ?></p>
             </div>
-            <?php endwhile; ?>
-            <!-- <div class="resp-product">
+            <?php }} ?>
+<!--             
+            <div class="resp-product">
                 <img src="resource/img/product/pajamas.jpg" alt="Pajamas" class="resp-product-img">
                 <p class="resp-text bold-text">Pajamas</p>
             </div>

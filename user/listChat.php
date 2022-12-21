@@ -30,7 +30,7 @@ function get_words($sentence, $count) {
 <body>
     <!-- judul -->
     <div class="display-inline-block">
-        <a href="../"><i class="fa-solid fa-arrow-left fa-2xl"></i></a>
+        <i onclick="window.location.href = '../'" class="fa-solid fa-arrow-left fa-2xl" style="cursor:pointer"></i>
         <h2>Chat</h2>
     </div>
     <!-- chats -->
