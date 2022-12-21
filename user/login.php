@@ -1,19 +1,25 @@
 <?php
-require 'api/connect.php';
-$conn = mysqli_connect("localhost", "root", "", "tekweb");
-$username = $_POST["username"];
-$password = $_POST["password"];
+include 'api/connect.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $username=$_POST['username'];
+    $password = $_POST['password'];
+    
+    $query_sql = "SELECT * FROM user
+            WHERE username = ? AND password = ? ";
 
-$query_sql = "SELECT * FROM user
-            WHERE username = '$username' AND password = '$password' ";
-
-$result = mysqli_query($conn, $query_sql);
-
-if(mysqli_num_rows($result) > 0){
-    header("Locations: formadd.php ");
+    $stmt = $conn->prepare($query_sql);
+    $stmt->execute([$username,$password]);
+    $user = $stmt->fetch();
+    // echo $user['username'];
+    if($stmt->rowCount() > 0){
+        $_SESSION['user_id'] = $user['user_id'];
+        header("Location: formadd.php "); #masuk
+    }
+    else {
+        header('Location: login.php?login=failed');
+    }
 }
-else {
-    echo "<center><h1> Email atau Password Anda Salah. Silahkan Coba Login kembali.</h1>";}
+
 ?>
 
 <!DOCTYPE html>
@@ -105,7 +111,7 @@ else {
 
             <?=isset($msg) ? '<div class="alert alert-danger">'.$msg.'</div>' : ''?>
 
-            <form method="POST">
+            <form method="POST" action="login.php">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label"><b>Username</b></label>
                     <input type="text" class="form-control" placeholder="Enter Username" id="enterusername"
@@ -120,13 +126,18 @@ else {
 
                 <div class="d-grid gap-2">
                     <button class="btn btn-dark" name="login">Login</button>
-                    <a href="registeruser.php">Don't have account? Sign up here</a>
+                    <p>Don't have account? Sign up <a href="registeruser.php">here</a></p>
                 </div>
             </form>
         </div>
 
     </div>
-
-</body>
+    <?php
+        if (isset($_GET['login'])){
+            if ($_GET['login'] == 'failed'){
+                echo '<Script>alert("Login Failed, Username or password wrong")</script>';
+            }
+        }
+    ?></body>
 
 </html>

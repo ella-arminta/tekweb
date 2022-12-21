@@ -3,9 +3,10 @@ require 'api/connect.php';
 
 if(isset($_POST['register']))
 {
+    $user_id = $_SESSION['user_id'];
     try {
         // connect to mysql
-        $conn = new PDO("mysql:host=localhost;dbname=test_db","root","");
+        $conn = new PDO("mysql:host=localhost;dbname=tekweb","root","");
     } catch (PDOException $exc) {
         echo $exc->getMessage();
         exit();
@@ -17,23 +18,27 @@ if(isset($_POST['register']))
     $product_size = $_POST['product_size'];
     $product_desc = $_POST['product_desc'];
     $product_img = $_POST['product_img'];
+    $product_category = $_POST['product_category'];
     
     // mysql query to insert data
 
-    $pdoQuery = "INSERT INTO `users`(`product_name`, `product_price`, `product_weight`, `product_size`, `product_desc` , `product_img`) 
-                VALUES (:product_name, :product_price, :product_weight, :product_size, :product_desc, :product_img)";
+    $pdoQuery = "INSERT INTO `product`(`product_name`, `product_price`, `product_weight`, `product_size`, `product_desc` , `product_img`,`user_id`, `product_category`) 
+                VALUES (:product_name, :product_price, :product_weight, :product_size, :product_desc, :product_img,:user_id,:product_category)";
     
     $pdoResult = $conn->prepare($pdoQuery);
     
     $pdoExec = $pdoResult->execute(array(":product_name"=>$product_name,":product_price"=>$product_price,":product_weight"=>$product_weight
-                    ,":product_size"=>$product_size,":product_desc"=>$product_desc,":product_img"=>$product_img));
+                    ,":product_size"=>$product_size,":product_desc"=>$product_desc,":product_img"=>$product_img,":user_id"=>$user_id,":product_category"=>$product_category));
     
         // check if mysql insert query successful
     if($pdoExec)
     {
-        echo 'Data Inserted';
+        $message = "Data Inserted";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+
     }else{
-        echo 'Data Not Inserted';
+        $message = "Data not Inserted";
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
 }
 

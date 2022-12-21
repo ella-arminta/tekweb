@@ -1,22 +1,36 @@
 <?php
-require 'api/connect.php';
-$conn = mysqli_connect("localhost", "root", "", "tekweb");
-$username = $_POST["username"];
-$fullname = $_POST["fullname"];
-$password = $_POST["password"];
-$profilepic = $_POST["profilepic"];
-
-$query_sql = "INSERT INTO user (username , fullname, password, profilepic)
-        VALUES ($username, $fullname, $password, $profilepic)";
-
-if(mysqli_query($conn, $query_sql)){
-    header("Locations: login.php ");
-}
-else {
-    echo "Pendaftaran Gagal : " . mysqli_error($conn);
-} 
-
+	require_once 'api/connect.php';
+ 
+	if(ISSET($_POST['register'])){
+		if($_POST['fullname'] != "" || $_POST['username'] != "" || $_POST['password'] != ""){
+			try{
+				$username = $_POST['username'];
+				$fullname = $_POST['fullname'];
+                $profilepic = $_POST['profilepic'];
+				// md5 encrypted
+				// $password = md5($_POST['password']);
+				$password = $_POST['password'];
+				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$sql = "INSERT INTO `user` VALUES ('', '$username', '$fullname', '$password', '$profilepic')";
+				$conn->exec($sql);
+                
+                $message = "Data Success Register!";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            header('location:login.php');
+			}catch(PDOException $e){
+				echo $e->getMessage();
+			}
+			$_SESSION['message']=array("text"=>"User successfully created.","alert"=>"info");
+			$conn = null;
+		}else{
+			echo "
+				<script>alert('Please fill up the required field!')</script>
+				<script>window.location = 'registeruser.php'</script>
+			";
+		}
+	}
 ?>
+
 
 
 <!DOCTYPE html>
@@ -41,7 +55,7 @@ else {
             border: 5px solid red;
             border-radius: 8px;
             position: absolute;
-            top: 58%;
+            top: 53%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 100%;
@@ -107,7 +121,7 @@ else {
 
             <?=isset($msg) ? '<div class="alert alert-danger">'.$msg.'</div>' : ''?>
 
-            <form method="post">
+            <form method="post" action="">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Fullname</label>
                     <input type="text" class="form-control" placeholder="Enter Fullname" id="exampleInputEmail1"
@@ -132,16 +146,23 @@ else {
 
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Input Profile Picture</label>
-                    <input class="form-control" type="file" id="profilepic">
+                    <input class="form-control" type="file" id="profilepic" name="profilepic">
                 </div>
 
                 <div class="d-grid gap-2">
                     <button class="btn btn-dark" name="register">Register</button>
-                    <a href="login.php">Already have account? Sign in here</a>
+                    <p>Already have account? Sign in <a href="login.php"> here</a></p>
                 </div>
             </form>
         </div>
     </div>
+    <?php
+        if (isset($_GET['register'])){
+            if ($_GET['register'] == 'failed'){
+                echo '<Script>alert("Register Failed, Try again!")</script>';
+            }
+        }
+    ?>
 </body>
 
 </html>
