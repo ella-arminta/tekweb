@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2022 at 05:22 PM
+-- Generation Time: Dec 21, 2022 at 05:54 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -47,7 +47,10 @@ INSERT INTO `chat` (`chat_id`, `user_id1`, `user_id2`) VALUES
 (7, 5, 12),
 (8, 0, 1),
 (9, 14, 12),
-(10, 14, 1);
+(10, 14, 1),
+(11, 5, 5),
+(12, 17, 17),
+(13, 17, 5);
 
 -- --------------------------------------------------------
 
@@ -69,9 +72,11 @@ CREATE TABLE `favourites` (
 INSERT INTO `favourites` (`id_fav`, `user_id`, `product_id`, `golike`) VALUES
 (1, 5, 3, 0),
 (2, 5, 1, 0),
-(3, 5, 2, 0),
 (4, 5, 4, 1),
-(5, 14, 2, 1);
+(6, 5, 8, 1),
+(7, 5, 13, 1),
+(9, 5, 2, 1),
+(10, 5, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -131,7 +136,10 @@ INSERT INTO `message` (`msg_id`, `msg`, `sender_id`, `chat_id`, `timestamp`) VAL
 (37, 'haii jerrr', 5, 6, '2022-12-21 13:06:57'),
 (38, 'hai jer\n', 14, 10, '2022-12-21 15:50:54'),
 (39, 'beli bJU TIDUR', 5, 6, '2022-12-21 16:07:04'),
-(40, 'jsadhf', 5, 4, '2022-12-21 16:13:43');
+(40, 'jsadhf', 5, 4, '2022-12-21 16:13:43'),
+(41, 'asdf', 17, 12, '2022-12-21 16:36:17'),
+(42, 'haii', 5, 4, '2022-12-21 16:39:54'),
+(43, 'te', 5, 4, '2022-12-21 16:50:49');
 
 -- --------------------------------------------------------
 
@@ -159,15 +167,15 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_w
 (1, 'baju tidur', 25000, 300, 'M', 'baju baru belum pernah dipakai', 'pakaian', 1, 'resource/img/product/pajamas.jpg'),
 (2, 'topi', 20000, 100, 'all size', 'topi pernah dipakai', 'topi', 1, 'resource/img/product/cap.jpg'),
 (3, 'sepatu', 50000, 1000, '37', 'sepatu cuma pernah dicoba, belum pernah pakai', 'sepatu', 1, 'resource/img/product/shoes.jpg'),
-(4, 'tas', 40000, 1200, 'medium', 'pamakaian 1 bulan', 'tas', 1, NULL),
-(5, 'aefhse', 1011, 1, 'M', 'enak', 'baju', 9, 'logobb.PNG'),
-(6, 'Nasi Goreng', 11111, 1, '10meter', 'sdwdwdwd', 'kantor', 9, 'IMG_1539.jpg'),
-(7, 'Nasi Goreng', 23320, 1000, '10meter', 'dnadnaldnaf', 'kantor', 12, ''),
-(8, 'nasa', 12, 2, 'm', 'nasa', 'sekolah', 5, 'nasa.jpeg'),
-(9, 'hp', 10000, 1, 'All size', 'samsung', 'sekolah', 5, 'samsung.jpg'),
-(10, 'Produk baru', 2800000, 1, 'ganteng', 'songkang', 'topi', 14, 'resource/img/product/songkang.png'),
-(11, 'hai', 10, 1, 'asdf', 'sadf', 'tas', 5, 'resource/img/product/mask.jpeg'),
-(12, 'produk31', 150000000, 1, 'besar', 'ruman', 'sekolah', 5, 'resource/img/product/rumah.jpg');
+(4, 'tas', 40000, 1200, 'medium', 'pamakaian 1 bulan', 'tas', 1, 'resource/img/product/shoes.jpg'),
+(5, 'aefhse', 1011, 1, 'M', 'enak', 'baju', 9, 'resource/img/product/cap.jpg'),
+(6, 'Nasi Goreng', 11111, 1, '10meter', 'sdwdwdwd', 'kantor', 9, 'resource/img/product/cap.jpg'),
+(7, 'Nasi Goreng', 23320, 1000, '10meter', 'dnadnaldnaf', 'kantor', 12, 'resource/img/product/shoes.jpg'),
+(8, 'nasa', 12, 2, 'm', 'nasa', 'sekolah', 5, 'resource/img/product/cap.jpg'),
+(9, 'hp', 10000, 1, 'All size', 'samsung', 'sekolah', 5, 'resource/img/product/cap.jpg'),
+(13, 'baju', 12, 2, 'sadf', 'sdf', 'tas', 5, 'resource/img/product/1671640013-emosi.jpg'),
+(14, 'masker', 1100, 2, 'kecil', 'masker baru', 'topi', 5, 'resource/img/product/1671640221-mask.jpeg'),
+(15, 'hai', 10000, 1, 'm', 'hai', 'topi', 17, 'resource/img/product/1671640551-samsung.jpg');
 
 -- --------------------------------------------------------
 
@@ -203,7 +211,9 @@ INSERT INTO `user` (`user_id`, `username`, `fullname`, `password`, `profilepic`)
 (13, 'jere1', 'jere', '', ''),
 (14, 'jere1', 'jere', 'jere1', 'sekretCP.png'),
 (15, 'jere2', 'jere2', '12345678', 'gempa.jpeg'),
-(16, 'JER54', 'JER54', '123', 'lilyn.jpg');
+(16, 'JER54', 'JER54', '123', 'lilyn.jpg'),
+(17, 'hai', 'hai', 'hai123', ''),
+(18, 'admin123', 'admin', 'admin123', '');
 
 --
 -- Indexes for dumped tables
@@ -248,31 +258,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `favourites`
 --
 ALTER TABLE `favourites`
-  MODIFY `id_fav` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_fav` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
